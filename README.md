@@ -26,16 +26,16 @@
 
 ---
 
-## ✨ What Makes Code AG Different?
+## 🔹 What Makes Code AG Different?
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
-### 🧠 Project Intelligence
+### 🔹 Project Intelligence
 Understands project structure, dependencies, symbols, imports, and code relationships across multiple languages.
 
-### 🛠️ Safe Code Operations
+### ⌨️ Safe Code Operations
 Reads, creates, edits, and deletes files through validation, backups, and approval gates.
 
 ### 🐞 Autonomous Debugging
@@ -47,10 +47,10 @@ Analyzes tracebacks, identifies root causes, proposes minimal patches, and verif
 ### 🤖 Multi-Agent Orchestration
 Coordinates Planner, Code, Debugger, Reviewer, and Coordinator agents through structured workflows.
 
-### 🔐 Security by Design
+### 🔹 Security by Design
 Uses command policies, protected paths, secret redaction, audit logs, and human approval for sensitive actions.
 
-### 🔄 Git-Aware Workflows
+### 🔐 Git-Aware Workflows
 Inspects changes, validates branches, stages explicit files, and supports controlled commits.
 
 </td>
@@ -59,8 +59,34 @@ Inspects changes, validates branches, stages explicit files, and supports contro
 
 > **Local-first design:** model inference runs through your local Ollama service. Code AG is not presented as a hosted cloud coding service.
 
+## 🔹 Explore Code AG
+
+<p align="center">
+  <a href="#-overview">Overview</a> ·
+  <a href="#-what-makes-code-ag-different">Features</a> ·
+  <a href="#-development-roadmap">Roadmap</a> ·
+  <a href="#-documentation-suite">Docs</a> ·
+  <a href="#-architecture--project-structure">Architecture</a> ·
+  <a href="#-verification--testing">Tests</a>
+</p>
+
+## 🔹 Overview
+
+| Area | Capability |
+|---|---|
+| 🧠 Intelligence | Project analysis, code indexing, context building, persistent memory |
+| 🤖 Agents | Planner, Code, Debugger, Reviewer, and Coordinator |
+| 🛠️ Development | File operations, terminal execution, tests, debugging, Git |
+| 🔐 Safety | Approval gates, protected paths, backups, secret redaction, audit logs |
+| ⚡ Runtime | Python 3.12+, Ollama, Qwen3, Windows 11 launcher and CLI |
+
+
 ---
 
+
+## 🔹 Development Roadmap
+
+The repository documents the implementation across these development phases. Phase 4 is not listed in the current project summary.
 
 - **Phase 1: CLI Foundation** — Interactive REPL, one-shot mode, Pydantic Settings, diagnostics, and Rich terminal UI.
 - **Phase 2: Advanced LLM Integration** — Real-time token streaming, multi-turn conversation memory, context budgeting, safe calculator tool-calling, and structured JSON validation.
@@ -74,7 +100,7 @@ Inspects changes, validates branches, stages explicit files, and supports contro
 
 ---
 
-## Documentation Suite
+## 📚 Documentation Suite
 
 Comprehensive production guides are available across dedicated documents:
 
@@ -90,7 +116,7 @@ Comprehensive production guides are available across dedicated documents:
 
 ---
 
-## Architecture & Project Structure
+## 🏗️ Architecture & Project Structure
 
 Code AG is built with modular, testable, decoupled components:
 
@@ -333,27 +359,27 @@ CodeAgent/
 
 ---
 
-## Phase 6: Autonomous Debugging Capabilities
+## 🐞 Phase 6: Autonomous Debugging Capabilities
 
-### 1. Robust Error Detection (`error_detector.py`)
+### 🚨 1. Robust Error Detection (`error_detector.py`)
 - **Exception Coverage:** Detects and parses over 15+ standard Python exceptions (`SyntaxError`, `IndentationError`, `TabError`, `ImportError`, `ModuleNotFoundError`, `NameError`, `TypeError`, `AttributeError`, `IndexError`, `KeyError`, `ValueError`, `FileNotFoundError`, `ZeroDivisionError`, `AssertionError`, `RuntimeError`, etc.).
 - **Execution Integration:** Directly inspects Phase 5 `ExecutionResult` and `TestReport` objects, extracting error type, message, target file, line number, exit code, and test failure metadata.
 - **Untrusted Input Guard:** Treats raw terminal output and error strings strictly as untrusted data without execution.
 
-### 2. Structured Traceback Parsing (`traceback_parser.py`)
+### 🐞 2. Structured Traceback Parsing (`traceback_parser.py`)
 - **Windows Path Handling:** Safely parses Windows absolute paths (`C:\...`), mixed slashes, and relative paths.
 - **Chained Exceptions:** Automatically handles chained tracebacks (`The above exception was the direct cause...` / `During handling...`), parsing both cause and resulting exceptions.
 - **Syntax Error Layouts:** Accurately parses Python SyntaxError and IndentationError caret blocks.
 - **Workspace Priority:** Automatically identifies the primary failure frame residing within the active project workspace rather than deep standard library or virtual environment files.
 
-### 3. Source-Code AST Inspection (`code_inspector.py`)
+### 🔎 3. Source-Code AST Inspection (`code_inspector.py`)
 - **Context Extraction:** Reads target files and formats a contextual snippet around the failing line with line numbers and a current line pointer (`>`).
 - **AST Symbol Extraction:** Identifies the enclosing function and class definition containing the error line.
 - **Import Analysis:** Parses the file's abstract syntax tree to extract all imported modules.
 - **Test Discovery:** Discovers corresponding test files (`test_<name>.py` or test files importing the affected module).
 - **Workspace Security:** Confined strictly within the workspace; respects sensitive file guards (`.env`, `.git`) and file size limits.
 
-### 4. Root Cause Analysis (`root_cause_analyzer.py`)
+### 🐞 4. Root Cause Analysis (`root_cause_analyzer.py`)
 - **Qwen3 Integration:** Formulates structured root cause diagnoses using local Ollama function calling or Pydantic schemas.
 - **Confidence Classification:** Distinguishes between:
   - `CONFIRMED`: Direct, indisputable evidence (e.g., zero divisor at specified line).
@@ -361,20 +387,20 @@ CodeAgent/
   - `HYPOTHESIS`: Runtime condition requiring verification.
 - **Deterministic Heuristics:** Includes a robust offline heuristic diagnosis engine ensuring reliable operation even if Ollama is temporarily offline.
 
-### 5. Minimal Fix Generation (`fix_generator.py`)
+### 🐞 5. Minimal Fix Generation (`fix_generator.py`)
 - **Unified Diff Generation:** Synthesizes minimal diffs using standard `difflib.unified_diff`.
 - **AST Syntax Validation:** Validates that the modified file produces valid Python syntax via `ast.parse` before proposing the patch.
 - **Read-Only Generation:** Files on disk are **never** modified during fix generation. Fixes are purely held in memory as `ProposedFix` objects.
 - **Dependency Awareness:** Identifies when an error requires package installation rather than code edits.
 
-### 6. Atomic Patch Application & Rollback (`patch_manager.py`)
+### 🐞 6. Atomic Patch Application & Rollback (`patch_manager.py`)
 - **Mandatory Human Approval:** The LLM cannot self-approve modifications. Every patch displays a clear unified diff in the terminal and requires human user approval (`[y/N]`).
 - **Concurrent Conflict Guard:** Verifies that target files on disk have not been altered since inspection before applying changes.
 - **Pre-Patch Backups:** Automatically creates an atomic backup in `.codeagent/backups/` before any file write.
 - **Atomic Disk Replacement:** Writes changes to a temporary file in the target directory and replaces atomically via `os.replace`.
 - **Full Rollback Support:** Restores pre-patch backups via `/rollback [id]` or the Python API.
 
-### 7. Automated Retesting & Regression Checking (`retest_manager.py`, `regression_checker.py`)
+### 🐞 7. Automated Retesting & Regression Checking (`retest_manager.py`, `regression_checker.py`)
 - **Verification Execution:** Automatically reruns the previously failing test suite or script using Phase 5 execution engines.
 - **Never Disables Tests:** Tests are never modified, skipped, or disabled to artificially produce passing results.
 - **Regression Detection:** Compares pre-fix and post-fix test results to catch any newly introduced test failures.
@@ -385,7 +411,7 @@ CodeAgent/
   - `VERIFICATION_BLOCKED`: Retest crashed or encountered environment issues.
   - `FIX_APPLIED_UNVERIFIED`: Patch applied without verification.
 
-### 8. 16-Step Debugger Controller (`debugger.py`)
+### 🐞 8. 16-Step Debugger Controller (`debugger.py`)
 Orchestrates the complete autonomous debugging loop:
 1. Receive failure evidence or execute target test.
 2. Detect error and extract metadata.
@@ -410,7 +436,7 @@ Orchestrates the complete autonomous debugging loop:
 
 ---
 
-## Registered Safe Tools (40 Tools Total)
+## 🧰 Registered Safe Tools (40 Tools Total)
 
 | Tool Name | Parameters | Category | Description |
 |:---|:---|:---:|:---|
@@ -457,7 +483,7 @@ Orchestrates the complete autonomous debugging loop:
 
 ---
 
-## Interactive Slash Commands
+## 🧰 Interactive Slash Commands
 
 | Command | Category | Action |
 |:---|:---:|:---|
@@ -502,7 +528,7 @@ Orchestrates the complete autonomous debugging loop:
 
 ---
 
-## Configuration Settings
+## ⚙️ Configuration Settings
 
 Configured via `.env` or environment variables:
 
@@ -600,11 +626,11 @@ WORKFLOW_STORAGE_PATH=data/workflows
 
 ---
 
-## Phase 8: Git Integration & Safety Management Architecture
+## 🏗️ Phase 8: Git Integration & Safety Management Architecture
 
 Phase 8 equips Code AG with enterprise-grade Git version control capabilities and an unbreakable safety and permission subsystem. All security decisions are rigorously enforced in deterministic Python code, never delegated to the LLM.
 
-### 1. Git Subsystem (`codeagent/git/`)
+### 🔐 1. Git Subsystem (`codeagent/git/`)
 - **RepoDetector**: Inspects workspace root for `.git` boundary, verifies Git CLI binary availability, checks detached HEAD states, identifies empty (no-commit) repos, and prevents symlink escape.
 - **StatusManager**: Executes `git status --porcelain=v1 --branch` using safe argument arrays (`shell=False`). Correctly handles paths with whitespace, octal escapes, and identifies unmerged conflict files (`UU`, `AA`, `UD`).
 - **DiffManager**: Generates unified diffs for working tree, staged (`--cached`), or specific files. Enforces output size byte limits (default 50 KB), skips binary files safely, and scrubs sensitive secrets/tokens (`sk-...`, `ghp_...`, passwords).
@@ -618,7 +644,7 @@ Phase 8 equips Code AG with enterprise-grade Git version control capabilities an
   6. Executes `git commit -m <msg>` and verifies commit existence via `git rev-parse HEAD`.
 - **GitManager**: Unified facade coordinating detection, status, diff, branch, and commit managers.
 
-### 2. Safety & Permission Subsystem (`codeagent/safety/`)
+### 🔐 2. Safety & Permission Subsystem (`codeagent/safety/`)
 - **ProtectedPathsManager**: Canonicalizes workspace paths to prevent directory traversal (`../`) and symlink escapes. Enforces default protected directories (`.git`, `.env`, `.venv`, system directories) and sensitive file patterns (`*.pem`, `*.key`, `id_rsa`, `credentials.json`, `secrets.json`, backup and audit dirs). Provides CLI and agent tools to add/remove custom protection rules.
 - **SafetyPermissionManager**: Centralized 3-tier command permission policy engine:
   - `ALLOW`: Safe, read-only inspection commands (`git status`, `git diff`, `git log`, `dir`, `ls`, `cat`).
@@ -628,7 +654,7 @@ Phase 8 equips Code AG with enterprise-grade Git version control capabilities an
 - **SafetyBackupManager**: Creates pre-modification snapshots in `data/backups/` indexed with SHA-256 integrity hashes. Supports single-file restore with conflict detection to prevent overwriting newer external modifications without user confirmation.
 - **SecurityAuditLogger**: Immutable append-only audit trail recorded simultaneously in SQLite WAL mode (`data/audit/audit.db`) and structured JSONL (`audit.jsonl`). Automatically redacts secrets, credentials, and sensitive tokens from audit logs.
 
-### 3. CLI Subcommands & Interactive REPL
+### ⌨️ 3. CLI Subcommands & Interactive REPL
 
 ```powershell
 # Git operations
@@ -656,7 +682,7 @@ Interactive REPL commands:
 
 ---
 
-## Phase 9: Advanced Multi-Agent Architecture & Workflow Orchestration
+## 🏗️ Phase 9: Advanced Multi-Agent Architecture & Workflow Orchestration
 
 Phase 9 transforms Code AG into a coordinated, multi-agent autonomous engineering organization. Five specialized agents collaborate via an in-process message bus, execute tasks scheduled through a topological DAG dependency graph, preserve concurrency safety with file-level locks, and persist all state in an ACID-compliant SQLite WAL database.
 
@@ -674,7 +700,7 @@ Phase 9 transforms Code AG into a coordinated, multi-agent autonomous engineerin
 └───────────────┘└──────────────┘└──────────────┘└──────────────┘└───────────────┘
 ```
 
-### 1. The Five Specialized Agents (`codeagent/agents/`)
+### 🤖 1. The Five Specialized Agents (`codeagent/agents/`)
 
 | Agent | Role | Tools & Capabilities | Guardrails & Permissions |
 |---|---|---|---|
@@ -684,7 +710,7 @@ Phase 9 transforms Code AG into a coordinated, multi-agent autonomous engineerin
 | **Reviewer Agent** | Independent quality assurance | Inspection tools (`read_file`, `git_diff`, `run_tests`, `search_code`). | Strictly read-only. Cannot edit files directly. Evaluates code across 5 distinct axes: Correctness, Quality, Security, Tests, Performance. |
 | **Coordinator Agent** | Workflow execution & state machine | Coordination & tool registry (`run_multiagent_workflow`, `get_workflow_status`, `list_workflows`, `inspect_workflow_task`, `cancel_workflow`). | Controls parallel execution (max 2 agents) via ThreadPoolExecutor. Dispatches tasks, orchestrates review loops, and manages rollbacks. |
 
-### 2. Multi-Agent Coordination Infrastructure
+### 🤖 2. Multi-Agent Coordination Infrastructure
 
 - **Inter-Agent Message Bus (`agent_messages.py`)**: Structured Pydantic messaging (`TASK_ASSIGN`, `TASK_COMPLETE`, `TASK_FAILED`, `REVIEW_REQUEST`, `REVIEW_RESULT`, `STATUS_UPDATE`) with strict caller verification to prevent agent impersonation.
 - **Granular File-Level Locks (`file_locks.py`)**: Canonical path-resolved locking system ensuring two agents never modify the same file concurrently, preventing write collisions and race conditions.
@@ -692,7 +718,7 @@ Phase 9 transforms Code AG into a coordinated, multi-agent autonomous engineerin
 - **Workflow State Management (`workflow_state.py`)**: ACID-compliant SQLite storage operating in WAL mode (`data/workflows/workflows.db`) persisting workflows, step records, agent logs, and review outcomes.
 - **Review & Rework Loop**: Code Agent modifications undergo independent Reviewer scrutiny. If findings trigger `NEEDS_REVISION`, the task routes back to the Code Agent with concrete findings for refinement (up to `MAX_REVIEW_REVISIONS=2`).
 
-### 3. Built-in Workflow Templates (`workflow_templates.py`)
+### 🤖 3. Built-in Workflow Templates (`workflow_templates.py`)
 
 1. **`BUILD_PROJECT`**: Planner decomposes requirements -> Code Agent implements modules -> Reviewer inspects code -> Debugger fixes any failing tests.
 2. **`FIX_BUG`**: Debugger isolates root cause & drafts fix -> Code Agent applies patch -> Reviewer verifies regression safety.
@@ -700,7 +726,7 @@ Phase 9 transforms Code AG into a coordinated, multi-agent autonomous engineerin
 4. **`ADD_FEATURE`**: Planner defines architecture -> Code Agent generates feature & tests -> Reviewer approves -> Debugger resolves edge cases.
 5. **`REFACTOR_PROJECT`**: Planner scopes refactoring -> Code Agent transforms modules -> Reviewer checks quality & tests confirm zero regressions.
 
-### 4. CLI Subcommands & Interactive REPL
+### ⌨️ 4. CLI Subcommands & Interactive REPL
 
 ```powershell
 # Agent inspection
@@ -726,7 +752,7 @@ Interactive REPL commands:
 
 ---
 
-## Registered Safe Tools (45 Tools)
+## 🧰 Registered Safe Tools (45 Tools)
 
 | Category | Count | Tools |
 |---|---|---|
@@ -742,20 +768,20 @@ Interactive REPL commands:
 
 ---
 
-## Phase 10: Production-Ready CLI, Monitoring & Release
+## ⚡ Phase 10: Production-Ready CLI, Monitoring & Release
 
 Code AG Phase 10 transforms the platform into an enterprise-ready, installable developer CLI:
 
-### 1. Fast Startup & Lazy LLM Initialization
+### ⚡ 1. Fast Startup & Lazy LLM Initialization
 - Commands like `version`, `config`, `monitor`, `performance`, and `health` execute instantly (sub-50ms) without loading Ollama or importing large dependencies.
 - LLM inference client is instantiated lazily only when autonomous reasoning or prompt generation is required.
 
-### 2. Centralized Structured Logging & Secret Redaction
+### ⚡ 2. Centralized Structured Logging & Secret Redaction
 - **Log Path:** `data/logs/codeagent.jsonl` with rotating file handler (10 MB max, 5 backups).
 - **Format:** Single-line JSON events with timestamp, severity level, subsystem component, and context metadata.
 - **Automated Scrubbing:** Regex engine scrubs OpenAI/Anthropic API keys, GitHub tokens, database connection passwords, bearer tokens, and private keys.
 
-### 3. Monitoring & System Health Diagnostics
+### ⚡ 3. Monitoring & System Health Diagnostics
 - Comprehensive diagnostic checks executed via `codeag health`:
   - **Application Runtime:** Python version, OS platform, and workspace boundaries.
   - **Persistent Databases:** SQLite schema version, tables, and total storage size.
@@ -766,20 +792,20 @@ Code AG Phase 10 transforms the platform into an enterprise-ready, installable d
 - Fast status monitoring dashboard via `codeag monitor`.
 - Sanitized diagnostic export via `codeag diagnostics --export <file>`.
 
-### 4. Local Performance Profiling
+### ⚡ 4. Local Performance Profiling
 - Real-time performance tracking via `@measure` decorator and `PerformanceProfiler`.
 - Non-LLM benchmark engine measuring AST calculator latency and path security validation via `codeag performance`.
 
-### 5. Multi-Tier Configuration Precedence
+### ⚡ 5. Multi-Tier Configuration Precedence
 - Centralized configuration precedence: CLI Flags > Environment Variables > Global User Config (`~/.codeagent/config.json`) > Defaults.
 - Configuration commands: `codeag config show`, `codeag config validate`, `codeag config path`, `codeag config init`.
 - Automatic secret masking ensures API credentials and passwords are never exposed on console.
 
-### 6. Windows 11 Native Launchers
+### ⚡ 6. Windows 11 Native Launchers
 - Launch via `codeag` or `code ag` directly from Command Prompt or PowerShell.
 - `setup.bat` and `setup.ps1` configure PATH and shell aliases automatically while preserving standard `code <file>` behavior for Visual Studio Code.
 
-### 7. Automatic First-Time Setup & Model Manager
+### ⚡ 7. Automatic First-Time Setup & Model Manager
 - Interactive 6-stage setup wizard automatically detects whether Ollama is installed and running.
 - Checks Python version, available RAM, free disk space (at least 6-10 GB), and GPU hardware acceleration.
 - Official Ollama installer downloaded and executed with user consent (no admin elevation required on Windows).
@@ -789,7 +815,7 @@ Code AG Phase 10 transforms the platform into an enterprise-ready, installable d
 
 ---
 
-## Verification & Testing
+## 🧪 Verification & Testing
 
 Run the complete test suite (Phases 1 through 10) completely offline:
 
@@ -806,3 +832,17 @@ Run connection diagnostics and inspect all 45 registered tools:
 ```powershell
 .\.venv\Scripts\codeag.exe health
 ```
+
+---
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:FC466B,45:6A5CFF,100:00C9FF&height=130&section=footer" width="100%" alt="Code AG gradient footer" />
+
+### 💜 Built for developers who want control over their AI coding workflow
+
+**Explore · Build · Debug · Review · Improve**
+
+[⬆ Back to top](#-code-ag)
+
+</div>
