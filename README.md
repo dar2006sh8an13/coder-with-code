@@ -1,6 +1,66 @@
-# Code AG — Advanced Local Autonomous AI Coding Assistant
+<div align="center">
 
-Code AG is a 100% local, autonomous AI coding assistant running locally on Windows 11 powered by **Ollama** and **Qwen3 (`qwen3:latest`)**.
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00C9FF,45:6A5CFF,100:FC466B&height=220&section=header&text=CODE%20AG&fontSize=58&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Autonomous%20AI%20Coding%20Assistant&descAlignY=60&descSize=20" width="100%" alt="Code AG colorful gradient banner" />
+
+<h1>⚡ Code AG</h1>
+<h3>Local-First · Autonomous · Multi-Agent AI Coding Assistant</h3>
+
+<p>
+  <a href="https://github.com/dar2006sh8an13/coder-with-code"><img src="https://img.shields.io/badge/Project-Code%20AG-6A5CFF?style=for-the-badge&logo=github&logoColor=white" alt="Code AG project" /></a>
+  <img src="https://img.shields.io/badge/Python-3.12%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.12+" />
+  <img src="https://img.shields.io/badge/LLM-Qwen3-7E57C2?style=for-the-badge" alt="Qwen3" />
+  <img src="https://img.shields.io/badge/Runtime-Ollama-black?style=for-the-badge&logo=ollama&logoColor=white" alt="Ollama" />
+  <img src="https://img.shields.io/badge/Platform-Windows%2011-0078D4?style=for-the-badge&logo=windows&logoColor=white" alt="Windows 11" />
+</p>
+
+<p>
+  <a href="INSTALLATION.md"><img src="https://img.shields.io/badge/Install-Guide-00B894?style=flat-square&logo=readthedocs&logoColor=white" alt="Installation guide" /></a>
+  <a href="QUICKSTART.md"><img src="https://img.shields.io/badge/Quickstart-5%20minutes-0984E3?style=flat-square&logo=rocket&logoColor=white" alt="Quickstart" /></a>
+  <a href="ARCHITECTURE.md"><img src="https://img.shields.io/badge/Architecture-Explore-6C5CE7?style=flat-square&logo=diagramsdotnet&logoColor=white" alt="Architecture" /></a>
+  <a href="SECURITY.md"><img src="https://img.shields.io/badge/Security-Read%20policy-E17055?style=flat-square&logo=shield&logoColor=white" alt="Security policy" /></a>
+</p>
+
+**Code AG is a local-first autonomous coding assistant powered by Ollama and Qwen3.** It combines project understanding, safe file operations, controlled code execution, autonomous debugging, Git workflows, persistent memory, and a coordinated multi-agent system.
+
+</div>
+
+---
+
+## ✨ What Makes Code AG Different?
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 🧠 Project Intelligence
+Understands project structure, dependencies, symbols, imports, and code relationships across multiple languages.
+
+### 🛠️ Safe Code Operations
+Reads, creates, edits, and deletes files through validation, backups, and approval gates.
+
+### 🐞 Autonomous Debugging
+Analyzes tracebacks, identifies root causes, proposes minimal patches, and verifies fixes with tests.
+
+</td>
+<td width="50%" valign="top">
+
+### 🤖 Multi-Agent Orchestration
+Coordinates Planner, Code, Debugger, Reviewer, and Coordinator agents through structured workflows.
+
+### 🔐 Security by Design
+Uses command policies, protected paths, secret redaction, audit logs, and human approval for sensitive actions.
+
+### 🔄 Git-Aware Workflows
+Inspects changes, validates branches, stages explicit files, and supports controlled commits.
+
+</td>
+</tr>
+</table>
+
+> **Local-first design:** model inference runs through your local Ollama service. Code AG is not presented as a hosted cloud coding service.
+
+---
+
 
 - **Phase 1: CLI Foundation** — Interactive REPL, one-shot mode, Pydantic Settings, diagnostics, and Rich terminal UI.
 - **Phase 2: Advanced LLM Integration** — Real-time token streaming, multi-turn conversation memory, context budgeting, safe calculator tool-calling, and structured JSON validation.
