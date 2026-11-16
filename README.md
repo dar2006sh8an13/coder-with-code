@@ -1,12 +1,12 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00C9FF,45:6A5CFF,100:FC466B&height=220&section=header&text=CODER%20WITH%20CODE&fontSize=48&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Code%20AG%20%E2%80%94%20Local-First%20AI%20Coding%20Agent&descAlignY=60&descSize=18" width="100%" alt="Coder with Code — Code AG banner" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00C9FF,45:6A5CFF,100:FC466B&height=220&section=header&text=CODE%20AG&fontSize=62&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Autonomous%20AI%20Coding%20Agent&descAlignY=60&descSize=20" width="100%" alt="Code AG autonomous AI coding agent banner" />
 
-<h1>⚡ Coder with Code · Code AG</h1>
-<h3>Local-first · Agentic · Developer-focused</h3>
+<h1>⚡ Code AG</h1>
+<h3>Autonomous · Local-First · Multi-Agent AI Coding Agent</h3>
 
 <p>
-  <a href="https://github.com/dar2006sh8an13/coder-with-code"><img src="https://img.shields.io/badge/GitHub-Coder%20with%20Code-181717?style=for-the-badge&logo=github" alt="GitHub repository" /></a>
+  <a href="https://github.com/dar2006sh8an13/coder-with-code"><img src="https://img.shields.io/badge/GitHub-Open%20Source-181717?style=for-the-badge&logo=github" alt="Open source on GitHub" /></a>
   <img src="https://img.shields.io/badge/Python-3.12%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.12+" />
   <img src="https://img.shields.io/badge/LLM-Qwen3-6A5CFF?style=for-the-badge" alt="Qwen3" />
   <img src="https://img.shields.io/badge/Runtime-Ollama-black?style=for-the-badge&logo=ollama" alt="Ollama" />
@@ -14,69 +14,102 @@
 </p>
 
 <p>
-  <a href="#-quick-start"><img src="https://img.shields.io/badge/Quick%20start-Get%20running-00B894?style=flat-square" alt="Quick start" /></a>
-  <a href="INSTALLATION.md"><img src="https://img.shields.io/badge/Installation-guide-0984E3?style=flat-square" alt="Installation guide" /></a>
-  <a href="ARCHITECTURE.md"><img src="https://img.shields.io/badge/Architecture-read-6C5CE7?style=flat-square" alt="Architecture" /></a>
-  <a href="SECURITY.md"><img src="https://img.shields.io/badge/Security-policy-E17055?style=flat-square" alt="Security policy" /></a>
+  <a href="#-quick-start"><img src="https://img.shields.io/badge/Quick%20Start-5%20Steps-00B894?style=flat-square" alt="Quick start" /></a>
+  <a href="INSTALLATION.md"><img src="https://img.shields.io/badge/Installation-Guide-0984E3?style=flat-square" alt="Installation guide" /></a>
+  <a href="ARCHITECTURE.md"><img src="https://img.shields.io/badge/Architecture-Explore-6C5CE7?style=flat-square" alt="Architecture" /></a>
+  <a href="SECURITY.md"><img src="https://img.shields.io/badge/Security-Policy-E17055?style=flat-square" alt="Security policy" /></a>
 </p>
 
-**Built in India. Designed for developers everywhere.**
+**Give Code AG a development task. It can plan the work, use project tools, and report what was actually completed.**
 
-Code AG is a Python-based, local-first AI coding assistant that connects to an Ollama model and coordinates specialized agents for software development tasks. The repository includes modules for project indexing, file operations, controlled command execution, debugging, Git workflows, memory, and monitoring.
+**Built in India. Designed for developers everywhere.**
 
 </div>
 
 ---
 
-## ✨ Why Coder with Code?
+## 🚀 What is Code AG?
 
-Code AG aims to bring an agentic development workflow into a developer-controlled local environment. Instead of treating an LLM response as an executed change, the application uses tools, validation, permissions, and verification steps around model-generated work.
+**Code AG is a Python-based, local-first autonomous AI coding agent.** It is designed to work inside a developer's project workspace through a command-line interface, using an Ollama-hosted language model and a set of application-controlled development tools.
 
-| Capability area | What the project is designed to provide |
+Unlike a chat-only code assistant, an agentic coding workflow connects model reasoning to tools: inspect a codebase, create a plan, request or perform permitted file changes, run approved commands, examine results, and verify the outcome.
+
+The repository documents a modular system for project indexing, multi-agent orchestration, guarded filesystem operations, command execution, debugging, Git workflows, persistent memory, and monitoring.
+
+> **Implementation note:** This README describes the architecture and capabilities documented in the repository. It does not claim that every possible autonomous workflow is complete or production-validated. Run the application and tests to verify behavior in your environment.
+
+## 🧠 Coding-agent capabilities
+
+| Area | What Code AG is designed to do |
 |---|---|
-| 🧠 Project intelligence | Inspect project structure, detect languages and frameworks, index symbols, and retrieve relevant code context |
-| 🧩 Agent orchestration | Coordinate Planner, Code, Debugger, Reviewer, and Coordinator roles |
-| ✍️ File operations | Read, create, edit, and delete workspace files through guarded operations |
-| 🧪 Execution and testing | Run approved commands and tests, capture results, and report failures |
-| 🐞 Debugging | Parse errors, propose minimal patches, request approval, and retest |
-| 🌿 Git workflows | Inspect status and diffs, manage branches, and perform controlled commits |
-| 🧠 Project memory | Store session and project knowledge in local SQLite storage |
-| 🔐 Safety controls | Validate paths and commands, protect sensitive files, create backups, and redact secrets |
+| **Understand a project** | Scan project structure, detect languages and frameworks, extract symbols, analyse imports, and retrieve relevant code context |
+| **Plan development tasks** | Break a request into ordered tasks and coordinate work through specialized agent roles |
+| **Write and edit code** | Use guarded filesystem tools to read, create, edit, and delete workspace files |
+| **Run development commands** | Execute approved commands and tests through the controlled execution subsystem |
+| **Debug failures** | Parse tracebacks, inspect source context, propose minimal patches, and support retesting |
+| **Review changes** | Examine proposed code changes for correctness, security, and regressions |
+| **Work with Git** | Inspect repository status and diffs, manage branches, and perform controlled commits |
+| **Remember project context** | Persist session and project information in local SQLite storage |
+| **Protect the workspace** | Apply path and command checks, approval gates, backups, secret redaction, and audit logging |
 
-> **Status note:** This README describes capabilities documented in this repository. Exact behavior depends on the current implementation and configuration. Review the guides and run the commands locally before relying on a capability in production.
+## 🏗️ Agent architecture
 
-## 🧭 Contents
+Code AG documents five specialized agent roles coordinated by a shared workflow:
 
-- [Quick start](#-quick-start)
-- [How Code AG works](#-how-code-ag-works)
-- [Agent roles](#-agent-roles)
-- [Key project modules](#-key-project-modules)
-- [Configuration](#-configuration)
-- [CLI examples](#-cli-examples)
-- [Documentation](#-documentation)
-- [Security](#-security)
-- [Development and tests](#-development-and-tests)
-- [Roadmap](#-roadmap)
-- [Contributing](#-contributing)
-- [License](#-license)
+| Agent | Responsibility |
+|---|---|
+| **Coordinator** | Maintains workflow state, assigns tasks, handles hand-offs, and coordinates completion |
+| **Planner** | Converts a developer request into a structured plan and dependencies |
+| **Code Agent** | Implements tasks using available project and filesystem tools |
+| **Debugger** | Analyses errors and test failures and proposes targeted fixes |
+| **Reviewer** | Reviews changes and checks for correctness, security, and regressions |
 
-## 🚀 Quick start
+The agents are application components, not separate model installations by default. The configuration documentation describes a shared model setup with optional per-agent model overrides.
 
-### Prerequisites
+## 🔄 How an agent task flows
+
+```mermaid
+flowchart TD
+    A[Developer task] --> B[Code AG CLI]
+    B --> C[Coordinator]
+    C --> D[Planner Agent]
+    D --> E[Structured task plan]
+    E --> F[Code / Debugger / Reviewer]
+    F --> G[Project index and context]
+    G --> H[Ollama model]
+    H --> I[Proposed tool call]
+    I --> J[Validate arguments and policy]
+    J --> K{Approval required?}
+    K -- Yes --> L[Ask developer]
+    K -- No --> M[Execute permitted tool]
+    L -->|Approved| M
+    L -->|Rejected| N[Stop or revise task]
+    M --> O[Capture execution result]
+    O --> P[Review and run verification]
+    P --> Q{Task verified?}
+    Q -- No|Retry with observed error --> C
+    Q -- Yes --> R[Report verified result]
+```
+
+**Core safety principle:** The model proposes actions; Code AG validates and executes them. A generated answer is not proof that a file was changed or a test passed. The final report should be based on observed tool and test results.
+
+## ⚡ Quick start
+
+### Requirements
 
 - Python **3.12 or newer**
-- [Ollama](https://ollama.com/) installed and running
-- A model available in Ollama (the documented default is `qwen3:latest`)
+- [Ollama](https://ollama.com/)
+- A local model available in Ollama (the documented default is `qwen3:latest`)
 - Git
 
-### 1. Clone the repository
+### 1. Clone Code AG
 
 ```bash
 git clone https://github.com/dar2006sh8an13/coder-with-code.git
 cd coder-with-code
 ```
 
-### 2. Create and activate a virtual environment
+### 2. Create a virtual environment
 
 **Windows PowerShell**
 ```powershell
@@ -96,187 +129,150 @@ python3.12 -m venv .venv
 source .venv/bin/activate
 ```
 
-### 3. Install Code AG
+### 3. Install dependencies
 
 ```bash
 python -m pip install --upgrade pip
 pip install -e ".[dev]"
 ```
 
-### 4. Start Ollama and download the model
+### 4. Prepare the local model
 
-In a separate terminal, make sure the Ollama service is running:
+Make sure Ollama is running, then pull the documented default model:
 
 ```bash
-ollama serve
 ollama pull qwen3:latest
 ollama list
 ```
 
-If Ollama is already running as a background service, you do not need to start a second server process.
+If Ollama is already running as a background service, do not start another server process.
 
-### 5. Launch Code AG
+### 5. Run Code AG
 
 ```bash
 codeag --help
 codeag
 ```
 
-For a quick environment check, consult the CLI reference for the available health and setup commands.
+See [INSTALLATION.md](INSTALLATION.md) for the full installation guide and [QUICKSTART.md](QUICKSTART.md) for the first session.
 
-> **Hardware note:** Model memory requirements vary by model quantization and context length. Start with a context size appropriate for your available RAM and VRAM.
+## 💻 Example developer tasks
 
-## 🔄 How Code AG works
+Once the CLI is running in a project workspace, you can describe the work you need in natural language. Example task prompts:
 
-The documented architecture separates agent coordination, project intelligence, model inference, tool execution, and safety checks.
+- "Explain the architecture of this project and identify its entry points."
+- "Find why the login test is failing and propose a minimal fix."
+- "Add input validation to the registration endpoint and update its tests."
+- "Review the current Git diff for possible bugs and security issues."
+- "Run the test suite and summarise failures."
 
-```mermaid
-flowchart TD
-    A[Developer request] --> B[Code AG CLI]
-    B --> C[Coordinator]
-    C --> D[Planner]
-    D --> E[Task plan]
-    E --> F[Specialized agent]
-    F --> G[Project context and memory]
-    G --> H[Ollama / Qwen3]
-    H --> I[Validated tool request]
-    I --> J[Permission and safety checks]
-    J --> K[File, terminal, test or Git tool]
-    K --> L[Execution result]
-    L --> M[Reviewer and verification]
-    M --> N{Task complete?}
-    N -- No --> C
-    N -- Yes --> O[Report result to developer]
-```
+These are example prompts, not a guarantee that every task will succeed. Inspect the proposed changes, approve sensitive operations, and verify test results.
 
-The model proposes actions; application code is responsible for validating and executing tools according to configured policies. Do not interpret an agent plan or generated response as proof that a file change, command, or test succeeded.
+## 🧩 Project architecture and modules
 
-## 🤖 Agent roles
-
-| Agent | Responsibility |
+| Module | Responsibility |
 |---|---|
-| **Coordinator** | Coordinates workflow state, agent hand-offs, and task progress |
-| **Planner** | Breaks a developer request into ordered tasks and dependencies |
-| **Code** | Implements requested changes using available project tools |
-| **Debugger** | Analyses tracebacks and test failures and proposes fixes |
-| **Reviewer** | Reviews changes for correctness, safety, and regressions |
-
-The repository documentation describes these roles as sharing a configurable model setup. See [ARCHITECTURE.md](ARCHITECTURE.md) for subsystem details.
-
-## 🧱 Key project modules
-
-The current repository includes the following documented areas:
-
-| Directory | Purpose |
-|---|---|
-| `codeagent/cli.py` and `codeagent/main.py` | CLI and application entry point |
+| `codeagent/cli.py`, `codeagent/main.py` | CLI and application entry point |
+| `codeagent/agents/` | Agent roles and orchestration |
 | `codeagent/config/` | Application settings |
 | `codeagent/context/` | Context budgeting and token estimation |
-| `codeagent/conversation/` | Conversation/session state |
-| `codeagent/agents/` | Agent roles and orchestration |
+| `codeagent/conversation/` | Conversation and session state |
 | `codeagent/filesystem/` | Workspace file operations and path validation |
 | `codeagent/execution/` | Controlled command and test execution |
 | `codeagent/debugging/` | Traceback analysis and patch workflow |
 | `codeagent/indexing/` | Code symbols, chunks, and project search |
 | `codeagent/intelligence/` | Project analysis and context construction |
-| `codeagent/memory/` | SQLite-based session and project memory |
+| `codeagent/memory/` | Persistent session and project memory |
 | `codeagent/git/` | Git operations |
-| `tests/` | Automated tests |
+| `tests/` | Automated test suite |
 
-For a deeper component map, see [ARCHITECTURE.md](ARCHITECTURE.md).
+Explore [ARCHITECTURE.md](ARCHITECTURE.md) for the detailed component and data-flow description.
+
+## 🔌 Model runtime and provider status
+
+The repository documents **Ollama** as the default local inference backend and `qwen3:latest` as the default model.
+
+| Provider | README status |
+|---|---|
+| Ollama / Qwen3 | Documented default runtime |
+| NVIDIA NIM / Nemotron | Not advertised as integrated by this README |
+| OpenRouter | Not advertised as integrated by this README |
+| Other cloud APIs | Require implementation and verification before being advertised |
+
+Cloud models can send prompts or source-code context outside the local machine. Any future cloud-provider integration should be opt-in, show which context will be transmitted, protect API keys, and never silently upload private project files.
 
 ## ⚙️ Configuration
 
-Code AG documents a four-level configuration precedence:
+The configuration guide documents a four-level precedence:
 
-1. CLI options and flags
-2. Environment variables (including a local `.env` file where supported)
+1. Command-line arguments and flags
+2. Environment variables
 3. User configuration
 4. Built-in defaults
 
-The documented local inference defaults are:
+The documented local defaults include:
 
 | Setting | Default |
 |---|---|
-| Provider/runtime | Ollama |
-| Ollama URL | `http://localhost:11434` |
+| Ollama endpoint | `http://localhost:11434` |
 | Model | `qwen3:latest` |
 | Context window setting | `8192` tokens |
-| Max parallel agents | `2` |
+| Maximum parallel agents | `2` |
 
-Use the project's configuration guide as the source of truth for supported setting names and options: [CONFIGURATION.md](CONFIGURATION.md).
+Consult [CONFIGURATION.md](CONFIGURATION.md) for supported environment variables and configuration behavior. Do not assume that setting an API key enables a provider that has not been implemented.
 
-### API keys and cloud providers
+## 🧰 CLI commands
 
-The repository's published configuration documentation describes Ollama as its default inference backend. Do not assume NVIDIA NIM, OpenRouter, or other cloud providers are integrated simply because their API keys are present in an environment file. Cloud-provider support must be implemented and tested before it is advertised as available. Never commit real API keys or secrets.
-
-## 💻 CLI examples
-
-The following commands are documented in the repository's CLI reference. Run `codeag --help` in your installed environment to confirm the commands available in your version.
+The repository's CLI reference documents commands such as:
 
 ```bash
-# Start the interactive coding session
+# Start the interactive coding agent
 codeag
 
-# Show command help
+# Display help
 codeag --help
 
-# Print version information
+# Show version
 codeag version
 
-# Inspect health and runtime status
+# Run subsystem health checks
 codeag health
 
-# View monitoring information
+# Inspect monitoring information
 codeag monitor
 
-# Inspect effective configuration
+# Display resolved configuration (secrets are masked)
 codeag config show
 
-# Run an approved command through the tool layer
+# Execute a command through the configured policy layer
 codeag run "python -m pytest"
 
-# Inspect Git status
+# Inspect Git status and diffs
 codeag git status
-
-# Inspect a Git diff
 codeag git diff
 ```
 
-See [CLI_REFERENCE.md](CLI_REFERENCE.md) for options, subcommands, and interactive commands.
+Check `codeag --help` for the commands available in your installed version. Full reference: [CLI_REFERENCE.md](CLI_REFERENCE.md).
 
-## 📚 Documentation
+## 🔐 Security and developer control
 
-| Guide | Description |
-|---|---|
-| [Installation](INSTALLATION.md) | Environment setup for Windows, Linux, and macOS |
-| [Quickstart](QUICKSTART.md) | First interactive session and basic workflow |
-| [Architecture](ARCHITECTURE.md) | Layers, components, and system interactions |
-| [CLI reference](CLI_REFERENCE.md) | Commands, options, and REPL usage |
-| [Configuration](CONFIGURATION.md) | Settings, precedence, and secret handling |
-| [Security](SECURITY.md) | Safety boundaries and permission practices |
-| [Troubleshooting](TROUBLESHOOTING.md) | Common setup and runtime issues |
-| [Contributing](CONTRIBUTING.md) | Development workflow and contribution guidance |
-| [Changelog](CHANGELOG.md) | Project change history |
-| [Research paper](RESEARCH_PAPER.md) | Research and design discussion |
+Coding agents interact with code, tools, and sometimes the terminal. Code AG's documented safeguards include:
 
-## 🔐 Security
+- Workspace path validation and protected-path checks
+- Command validation and approval policies
+- Confirmation gates for sensitive operations
+- Pre-modification backups and rollback support
+- Secret redaction in logs and diagnostics
+- Git secret scanning and controlled staging
+- Execution output limits and process management
 
-Code agents can affect source files and execute commands. Use this project with appropriate safeguards:
+Always review diffs and approval prompts. Use a dedicated development environment and a clean Git branch. Never put real credentials in source files, prompts, screenshots, logs, or commits.
 
-- Keep API keys, tokens, passwords, and private configuration out of source control.
-- Review requested file changes and command approvals before accepting them.
-- Work on a clean Git branch and keep backups of important projects.
-- Do not run the tool with elevated privileges unless required and understood.
-- Treat repository files, terminal output, and model-generated content as untrusted input.
-- Inspect diffs and run tests before merging or deploying changes.
-- Report vulnerabilities privately according to [SECURITY.md](SECURITY.md).
-
-Read the full [Security & Safety Policy](SECURITY.md).
+Read [SECURITY.md](SECURITY.md) and report vulnerabilities privately using the process described there.
 
 ## 🧪 Development and tests
 
-Install development dependencies in the active virtual environment:
+Install development dependencies:
 
 ```bash
 pip install -e ".[dev]"
@@ -288,49 +284,62 @@ Run the default test suite:
 python -m pytest
 ```
 
-The project configuration excludes tests marked as `integration` from the default run. Consult the test and contribution documentation before running live tests against Ollama.
+The project configuration excludes tests marked `integration` from the default run. Consult the test instructions before running integration tests that require a live Ollama service. Do not publish a test pass rate unless the tests have actually been executed and the result recorded.
 
-## 🗺️ Roadmap
+## 🗺️ Development roadmap
 
-The repository's changelog and documentation describe a phased development effort covering:
+The repository documentation records work across these areas:
 
 - CLI foundation and model integration
-- Workspace filesystem intelligence
-- Controlled terminal execution and testing
+- Workspace filesystem tools
+- Controlled terminal and test execution
 - Autonomous debugging and regression checks
-- Project indexing, context retrieval, and persistent memory
+- Project indexing and persistent memory
 - Git integration and safety management
 - Multi-agent workflow orchestration
 - Monitoring, diagnostics, packaging, and documentation
 
-See [CHANGELOG.md](CHANGELOG.md) for the recorded project history. Roadmap descriptions are not a guarantee that every workflow has been independently validated on every operating system or model.
+See [CHANGELOG.md](CHANGELOG.md) for the repository's recorded development history. Roadmap items are not promises of completed functionality.
+
+## 📚 Documentation
+
+| Document | What it covers |
+|---|---|
+| [Installation](INSTALLATION.md) | Environment setup for Windows, Linux, and macOS |
+| [Quickstart](QUICKSTART.md) | First interactive session |
+| [Architecture](ARCHITECTURE.md) | Subsystems and data flows |
+| [CLI reference](CLI_REFERENCE.md) | Commands, flags, and REPL usage |
+| [Configuration](CONFIGURATION.md) | Settings and precedence |
+| [Security](SECURITY.md) | Safety boundaries and permissions |
+| [Troubleshooting](TROUBLESHOOTING.md) | Common setup and runtime issues |
+| [Contributing](CONTRIBUTING.md) | Development workflow and PR process |
+| [Changelog](CHANGELOG.md) | Project history |
+| [Research paper](RESEARCH_PAPER.md) | Research and design discussion |
 
 ## 🤝 Contributing
 
-Contributions, bug reports, and documentation improvements are welcome.
+Contributions are welcome.
 
 1. Read [CONTRIBUTING.md](CONTRIBUTING.md).
-2. Open an issue describing the problem or proposed change.
+2. Open an issue describing the bug or proposed change.
 3. Create a focused branch.
 4. Add or update tests where appropriate.
-5. Run the relevant checks and include their actual results in your pull request.
+5. Run relevant checks and include actual results in your pull request.
 
-Please keep changes scoped and avoid including credentials, local databases, model files, or generated runtime data.
+Keep pull requests focused. Do not commit secrets, virtual environments, model weights, local databases, or generated runtime data.
 
 ## 📄 License
 
-This repository includes a [LICENSE](LICENSE) file. Review it for the exact terms before redistributing or incorporating the project.
+See the repository's [LICENSE](LICENSE) file for the exact license terms.
 
 ---
 
 <div align="center">
 
-**Coder with Code · Code AG**
+**Code AG — Autonomous AI Coding Agent**
 
 *Built in India. Designed for developers everywhere.*
 
-<a href="https://github.com/dar2006sh8an13/coder-with-code">Repository</a> ·
-<a href="https://github.com/dar2006sh8an13/coder-with-code/issues">Issues</a> ·
-<a href="https://github.com/dar2006sh8an13/coder-with-code/blob/main/CONTRIBUTING.md">Contributing</a>
+[GitHub Repository](https://github.com/dar2006sh8an13/coder-with-code) · [Issues](https://github.com/dar2006sh8an13/coder-with-code/issues) · [Contributing](CONTRIBUTING.md)
 
 </div>
