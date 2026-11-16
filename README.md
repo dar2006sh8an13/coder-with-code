@@ -2,9 +2,9 @@
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00C9FF,45:6A5CFF,100:FC466B&height=220&section=header&text=CODER%20WITH%20CODE&fontSize=48&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Code%20AG%20%E2%80%94%20Autonomous%20AI%20Coding%20Agent&descAlignY=60&descSize=18" width="100%" alt="Coder with Code — Code AG" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00C9FF,45:6A5CFF,100:FC466B&height=220&section=header&text=CODER%20WITH%20CODE&fontSize=48&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Autonomous%20AI%20Coding%20Agent&descAlignY=60&descSize=18" width="100%" alt="Coder with Code — Autonomous AI Coding Agent" />
 
-<h2>⚡ Code AG</h2>
+<h2>⚡ Coder with Code</h2>
 <h3>Coder with Code · Autonomous · Local-First · Multi-Agent</h3>
 
 <p>
@@ -24,9 +24,9 @@
 
 ## What is Coder with Code?
 
-**Coder with Code (Code AG)** is a Python-based, local-first AI coding agent. It connects a language model through Ollama to a collection of application-controlled tools and specialized agent roles.
+**Coder with Code** is a Python-based, local-first AI coding agent. It connects a language model through Ollama to a collection of application-controlled tools and specialized agent roles.
 
-The goal is to move beyond code suggestions: Code AG is designed to inspect a workspace, plan development tasks, use permitted file and terminal tools, analyse failures, and report verification results.
+The goal is to move beyond code suggestions: Coder with Code is designed to inspect a workspace, plan development tasks, use permitted file and terminal tools, analyse failures, and report verification results.
 
 > **Implementation transparency:** This README describes the architecture and capabilities documented in this repository. It does not claim that every workflow is complete or production-validated. Verify behavior with the installed application and test suite.
 
@@ -46,7 +46,7 @@ The goal is to move beyond code suggestions: Code AG is designed to inspect a wo
 
 ## Multi-agent system
 
-Code AG documents five coordinated agent roles:
+Coder with Code documents five coordinated agent roles:
 
 | Agent | Responsibility |
 |---|---|
@@ -58,11 +58,11 @@ Code AG documents five coordinated agent roles:
 
 These are logical agent roles. The configuration guide describes a shared model setup with optional per-agent model overrides.
 
-## How Code AG works
+## How Coder with Code works
 
 ```mermaid
 flowchart TD
-    A[Developer request] --> B[Code AG CLI]
+    A[Developer request] --> B[Coder with Code CLI]
     B --> C[Coordinator]
     C --> D[Planner]
     D --> E[Task plan]
@@ -272,7 +272,7 @@ See [LICENSE](LICENSE) for the exact license terms.
 
 <div align="center">
 
-**Coder with Code — Code AG**
+**Coder with Code**
 
 *An autonomous AI coding agent. Built in India. Designed for developers everywhere.*
 
